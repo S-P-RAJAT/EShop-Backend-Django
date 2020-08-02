@@ -1,0 +1,7 @@
+{% extends "home_page.html" %}
+{% block content %}
+	<div>Product List:</div>
+	{% for product in object_list%}
+		<div><a href="{% url 'products:detail' product.pk %}">{{ product.title}}</a></div>
+	{% endfor %}
+{% endblock %}

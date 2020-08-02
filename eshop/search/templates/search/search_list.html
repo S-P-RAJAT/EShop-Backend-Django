@@ -1,0 +1,23 @@
+{% extends "home_page.html" %}
+{% block content %}
+<div class = "container">
+	{% if request.GET.q %}
+		<div>Search results for <strong><em>"{{request.GET.q}}"</em></strong></div>
+	{% else %}
+			<div class = "row">
+				<div class = "col">
+					<form method = "GET" id="search_form">
+						<input type="text" placeholder = "Search" name="q" autocomplete="off">
+					</form>
+				</div>
+				<div class = "col-7">
+					<button type = "submit" form = "search_form" value="Submit">Submit</button>
+				</div>
+			</div>
+		<div>Product List:</div>
+	{% endif %}
+	{% for product in object_list%}
+		<div><a href="{% url 'products:detail' product.pk %}">{{ product.title}}</a></div>
+	{% endfor %}
+</div>
+{% endblock %}

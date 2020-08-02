@@ -1,0 +1,22 @@
+{% extends "home_page.html" %}
+{% block content %}
+
+	<style type="text/css">
+		img{
+		height: auto;
+		max-height: 300px;
+		max-width:400px;
+	}
+	</style>
+<div class = "container">
+	<div class = "row">
+		<div class = "col-8 ml-auto mr-auto">
+			<img src="{{product.image.url}}">
+			<div>{{ product.title}}</div>
+			<div>{{ product.description}}</div>
+			<div>{{ product.price}}</div>
+			<div>{{ now| date}}</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

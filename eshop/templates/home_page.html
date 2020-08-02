@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      
+      <link rel='stylesheet' href='{% static "css/main.css" %}' >
+    </head>
+    <body>
+      <div class='text-center'>
+          <h1>{{ title }}</h1>
+          <h1><a href="{% url 'home' %}">E-Shop</a></h1>
+          <hr>
+          <a href="{% url 'products:products' %}">Products</a>
+          <a href="{% url 'search:search' %}">Search</a>
+          <hr>
+      </div>
+      <div class='container'>
+      {% block content %}
+        <div class='row'>
+          <div class='col'>
+              <img src="{% static 'img/image.jpg' %}" class='img-fluid' />
+              <p>{{ content }}</p>
+          </div>
+        </div>
+        <!-- {% if request.user.is_authenticated %}
+        <div class='row'>
+          <div class='col'>
+          <h1>Premium</h1>
+          {{ premium_content }}
+          </div>
+        </div>
+        {% endif %} -->
+      {% endblock content %}
+      </div>
+    </body>
+  </html>
